@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chat-room-body">
+
+  <!-- JOIN SCREEN -->
+  <div id="joinScreen" class="login-body" style="flex:1;">
+    <div class="login-card chat-join-card">
+      <h1 id="joinChatName">💬 Chat</h1>
+      <p class="subtitle" id="joinSubtitle">Enter the current passcode to join</p>
+      <form id="joinForm">
+        <input type="text" id="joinUsername" placeholder="Your name or emoji (e.g. 🐼 Sam)" required maxlength="30">
+        <input type="text" id="joinPasscode" placeholder="6-digit passcode" required maxlength="6" inputmode="numeric">
+        <button type="submit">Join chat</button>
+      </form>
+      <p id="joinError" class="error"></p>
+    </div>
+  </div>
+
+  <!-- CHAT ROOM -->
+  <div id="roomScreen" class="hidden" style="display:none; flex-direction:column; height:100vh;">
+    <div class="chat-room-header">
+      <div>
+        <h1 id="roomChatName">Chat</h1>
+        <div class="chat-you" id="roomWhoAmI"></div>
+      </div>
+      <button id="leaveChatBtn" class="ghost-btn">Leave chat</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <div class="chat-input-row" id="chatInputRow">
+      <label class="ghost-btn upload-btn" title="Attach photo or video">
+        📎
+        <input type="file" id="chatFileInput" accept="image/*,video/*" hidden>
+      </label>
+      <button id="recordVoiceBtn" class="ghost-btn" title="Record voice message">🎤</button>
+      <input type="text" id="chatTextInput" placeholder="Message...">
+      <button id="sendChatBtn" class="primary-btn">Send</button>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

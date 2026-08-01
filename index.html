@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Vault — Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <h1>🔒 My Vault</h1>
+    <p class="subtitle">Private notes, photos & videos</p>
+    <form id="loginForm">
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit">Unlock</button>
+    </form>
+    <p id="loginError" class="error"></p>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    const form = document.getElementById("loginForm");
+    const errorEl = document.getElementById("loginError");
+
+    // If already logged in with a valid token, skip straight to dashboard
+    if (localStorage.getItem("vault_token")) {
+      window.location.href = "dashboard.html";
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorEl.textContent = "";
+      const password = document.getElementById("password").value;
+      const btn = form.querySelector("button");
+      btn.disabled = true;
+      btn.textContent = "Checking...";
+      try {
+        const res = await VaultAPI.login(password);
+        if (res.ok) {
+          localStorage.setItem("vault_token", res.token);
+          window.location.href = "dashboard.html";
+        } else {
+          errorEl.textContent = res.error || "Login failed";
+        }
+      } catch (err) {
+        errorEl.textContent = "Could not reach server. Check API_URL in js/api.js.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Unlock";
+      }
+    });
+  </script>
+</body>
+</html>

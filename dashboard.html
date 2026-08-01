@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Vault</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🔒 My Vault</h1>
+    <div class="topbar-actions">
+      <button id="toggleTheme" class="ghost-btn">🌙</button>
+      <button id="logoutBtn" class="ghost-btn">Logout</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="notes">📝 Notes</button>
+    <button class="tab-btn" data-tab="gallery">🖼️ Photos & Videos</button>
+    <button class="tab-btn" data-tab="chat">💬 Chat Links</button>
+  </nav>
+
+  <main>
+    <!-- NOTES TAB -->
+    <section id="notes-tab" class="tab-content active">
+      <div class="panel-header">
+        <input type="text" id="noteSearch" placeholder="Search notes...">
+        <button id="newNoteBtn" class="primary-btn">+ New note</button>
+      </div>
+      <div id="notesList" class="notes-grid"></div>
+    </section>
+
+    <!-- GALLERY TAB -->
+    <section id="gallery-tab" class="tab-content">
+      <div class="panel-header">
+        <label class="upload-btn primary-btn">
+          + Upload photo/video
+          <input type="file" id="mediaInput" accept="image/*,video/*" hidden multiple>
+        </label>
+        <span id="uploadStatus"></span>
+      </div>
+      <div id="mediaGrid" class="media-grid"></div>
+    </section>
+    <!-- CHAT TAB -->
+    <section id="chat-tab" class="tab-content">
+      <div class="panel-header">
+        <input type="text" id="chatNameInput" placeholder="Name this chat (e.g. Family trip)">
+        <button id="createChatBtn" class="primary-btn">+ Create chat link</button>
+      </div>
+      <p class="hint-text">Share the link with people you want to chat with. The passcode
+        refreshes every minute — only needed the first time someone joins; after that
+        they stay signed in until they leave or you remove them.</p>
+      <div id="chatSessionsList" class="chat-sessions-list"></div>
+    </section>
+  </main>
+
+  <!-- Note editor modal -->
+  <div id="noteModal" class="modal hidden">
+    <div class="modal-card">
+      <input type="text" id="noteTitle" placeholder="Title">
+      <textarea id="noteContent" placeholder="Write your note..." rows="12"></textarea>
+      <input type="text" id="noteTags" placeholder="Tags (comma separated)">
+      <div class="modal-actions">
+        <button id="deleteNoteBtn" class="danger-btn">Delete</button>
+        <div>
+          <button id="cancelNoteBtn" class="ghost-btn">Cancel</button>
+          <button id="saveNoteBtn" class="primary-btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Media preview modal -->
+  <div id="mediaModal" class="modal hidden">
+    <div class="modal-card media-preview-card">
+      <div id="mediaPreviewContent"></div>
+      <div class="modal-actions">
+        <button id="deleteMediaBtn" class="danger-btn">Delete</button>
+        <button id="closeMediaBtn" class="ghost-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
