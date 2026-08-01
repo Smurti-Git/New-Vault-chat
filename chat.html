@@ -23,7 +23,7 @@
   </div>
 
   <!-- CHAT ROOM -->
-  <!-- <div id="roomScreen" class="hidden" style="display:none; flex-direction:column; height:100vh;">
+  <div id="roomScreen" class="hidden" style="display:none; flex-direction:column; height:100vh;">
     <div class="chat-room-header">
       <div>
         <h1 id="roomChatName">Chat</h1>
@@ -43,53 +43,7 @@
       <input type="text" id="chatTextInput" placeholder="Message...">
       <button id="sendChatBtn" class="primary-btn">Send</button>
     </div>
-  </div> -->
-
-<!-- ... keep head and joinScreen ... -->
-
-<!-- CHAT ROOM -->
-<div id="roomScreen" class="hidden" style="display:none;">
-  <div class="chat-container" id="chatContainer">
-    <!-- LEFT SIDEBAR -->
-    <aside class="chat-sidebar">
-      <div class="sidebar-header">
-        <h3>Chats</h3>
-        <button id="sidebarClose" class="ghost-btn" style="display:none;">✕</button>
-      </div>
-      <div class="sidebar-list" id="sidebarList">
-        <!-- Chat links populated here -->
-      </div>
-    </aside>
-
-    <!-- RIGHT CHAT WINDOW -->
-    <main class="chat-main">
-      <div class="chat-room-header">
-        <div style="display: flex; align-items: center;">
-          <button id="mobileBackBtn" class="ghost-btn">←</button>
-          <div>
-            <h1 id="roomChatName">Select a chat</h1>
-            <div class="chat-you" id="roomWhoAmI"></div>
-          </div>
-        </div>
-        <button id="leaveChatBtn" class="ghost-btn">Leave chat</button>
-      </div>
-
-      <div class="chat-messages" id="chatMessages">
-        <div class="empty-state">Select a conversation to start chatting</div>
-      </div>
-
-      <div class="chat-input-row" id="chatInputRow" style="visibility: hidden;">
-        <label class="ghost-btn upload-btn">
-          📎
-          <input type="file" id="chatFileInput" accept="image/*,video/*" hidden>
-        </label>
-        <button id="recordVoiceBtn" class="ghost-btn">🎤</button>
-        <input type="text" id="chatTextInput" placeholder="Message...">
-        <button id="sendChatBtn" class="primary-btn">Send</button>
-      </div>
-    </main>
   </div>
-</div>
 
   <script src="js/api.js"></script>
   <script src="js/chat.js"></script>
