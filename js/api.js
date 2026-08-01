@@ -5,7 +5,7 @@
  * deployment URL below. It looks like:
  * https://script.google.com/macros/s/AKfycb.../exec
  */
-const API_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbwdnYkDoRl5kTgKNJ765A3MURjyEHePXRTLyCh4_9EKVHZ2gQqxAG-8t2NgMKvMcZXq/exec";
 
 const VaultAPI = (() => {
   function getToken() {
